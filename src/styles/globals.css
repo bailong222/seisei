@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+:root {
+  line-height: 1.5;
+  font-weight: 800;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Tiny5","Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: large;
+  font-variation-settings: "slnt" 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Optional: slight slide up effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+.custom-slider-track {
+  width: 100%;            /* Full width of its container */
+  height: 10px;           /* Height of the track */
+  outline: none;          /* Remove focus outline for the track itself */
+  border-radius: 8px;     /* Rounded corners for the track */
+  cursor: default;        /* Important: no pointer cursor on the track */
+  transition: background 3s ease-in-out; /* Smooth transition for dynamic background */
+}
+
+
+.custom-slider-thumb {
+  width: 40px;            /* Width of the thumb */
+  height: 40px;           /* Height of the thumb */
+  background: linear-gradient(oklch(85.2% 0.199 91.936), oklch(79.5% 0.184 86.047), oklch(68.1% 0.162 75.834));
+  cursor: grab;           /* Indicate it's draggable */
+  border-radius: 5px;     /* Rounded corners for the thumb */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
+
+  /* --- IMPORTANT: Remove default browser focus styles --- */
+  outline: none; /* Remove blue/orange outline on focus */
+  border: none;  /* Ensure no default border appears */
+}
+
+/* You might also want to explicitly target the thumb when it's focused,
+   if the above doesn't completely remove all default browser styles,
+   or if you want to provide a *different* focus indicator. */
+.custom-slider-thumb:focus {
+  outline: none;
+  border: none;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  height: 36px;
+  width: 80px;
+  --g1:conic-gradient(from  90deg at left   3px top   3px,#0000 90deg,#000000 0);
+  --g2:conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,#000000 0);
+  background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+  background-position: left,center,right;
+  background-repeat: no-repeat;
+  animation: l9 1s infinite;
+}
+@keyframes l9 {
+  0%   {background-size:25px 50% ,25px 50% ,25px 50%}
+  25%  {background-size:25px 100%,25px 50% ,25px 50%}
+  50%  {background-size:25px 50% ,25px 100%,25px 50%}
+  75%  {background-size:25px 50% ,25px 50% ,25px 100%}
+  100% {background-size:25px 50% ,25px 50% ,25px 50%}
+}
+
+
+
